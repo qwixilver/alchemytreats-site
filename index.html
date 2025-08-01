@@ -1,0 +1,111 @@
+<!-- File: index.html
+     Path: /index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alchemy Treats - Sugar-Free Candy Magic</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header>
+    <a href="./index.html"><img src="./img/logo.png" alt="Alchemy Treats Logo" class="site-logo"></a>
+    <p>Transforming Sweetness, Without the Sugar</p>
+    <div class="magic-sparkle" style="top: 20%; left: 10%;"></div>
+    <div class="magic-sparkle" style="top: 50%; left: 80%;"></div>
+    <div class="magic-sparkle" style="top: 80%; left: 30%;"></div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#products">Our Candies</a></li>
+      <li><a href="#science">The Science</a></li>
+      <li><a href="./order.html">Order Now</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="about">
+      <h2>About Alchemy Treats</h2>
+      <p>Welcome to Alchemy Treats, where we're revolutionizing the world of candy! Our passion is creating delicious, sugar-free confections that taste just as good as their sugary counterparts. Using cutting-edge food science and a dash of magic, we've perfected the art of sweet without the sugar.</p>
+    </section>
+
+    <section id="products">
+      <h2>Our Magical Candies</h2>
+      <div class="candy-grid">
+        <div class="candy-item">
+          <a href="./citrus-celebration.html">
+            <img src="./img/Citrus Celebration.png" alt="Citrus Celebration">
+            <h3>Citrus Celebration</h3>
+            <p>A sparkling citrus symphony that dances across your taste buds with refreshing zest.</p>
+          </a>
+        </div>
+        <div class="candy-item">
+          <a href="./first-of-spring.html">
+            <img src="./img/FirstOfSpring.png" alt="First of Spring">
+            <h3>First of Spring</h3>
+            <p>Where wintergreen winds meet maple whispers in a spell of sweet renewal.</p>
+          </a>
+        </div>
+        <div class="candy-item">
+          <a href="./ghost-chocolate.html">
+            <img src="./img/Ghost Chocolate.png" alt="Ghost Chocolate">
+            <h3>Ghost Chocolate</h3>
+            <p>Ethereal chocolate magic with a whisper of toffee—vanishing sweetness in every bite.</p>
+          </a>
+        </div>
+        <div class="candy-item">
+          <a href="./love-potion-1.html">
+            <img src="./img/Love_potion_1.png" alt="Love Potion #1">
+            <h3>Love Potion #1</h3>
+            <p>Enchanting dark chocolate and raspberry swirl, a bewitching spell of rich indulgence.</p>
+          </a>
+        </div>
+        <div class="candy-item">
+          <a href="./thanksgiving-hug.html">
+            <img src="./img/Thanksgiving Hug.png" alt="Thanksgiving (Hug)">
+            <h3>Thanksgiving (Hug)</h3>
+            <p>Pumpkin spice dreams kissed with creamy warmth, like autumn’s embrace in candy form.</p>
+          </a>
+        </div>
+        <div class="candy-item">
+          <a href="./valentines-day.html">
+            <img src="./img/Valentines day.png" alt="Valentine’s Day">
+            <h3>Valentine’s Day</h3>
+            <p>A fiery cinnamon spark twirls with strawberry sweetness—romance in every morsel.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="science">
+      <h2>The Alchemy Behind Our Treats</h2>
+      <p>Our team of food scientists and confectionery experts have developed a proprietary blend of natural sweeteners and flavor enhancers that mimic the taste and texture of sugar. We use ingredients like erythritol, stevia, and monk fruit extract, combined with our secret flavor-boosting process to create candies that are indistinguishable from traditional sweets.</p>
+      <p>But we don't stop at just replacing sugar. Our candies are fortified with vitamins and minerals, making them not just a treat, but a smart snacking choice!</p>
+    </section>
+
+    <section id="order">
+      <h2>Experience the Magic</h2>
+      <p>Ready to transform your candy experience? Order now and get a taste of the future of sweets!</p>
+      <a href="./order.html" class="cta-button">Order Your Alchemy Treats</a>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 Alchemy Treats. All rights reserved.</p>
+    <p>Transforming the world of candy, one sugar-free treat at a time.</p>
+  </footer>
+  <script>
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('magic-sparkle');
+      sparkle.style.left = Math.random() * 100 + '%';
+      sparkle.style.top = Math.random() * 100 + '%';
+      sparkle.style.animationDelay = Math.random() * 2 + 's';
+      document.querySelector('header').appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 2000);
+    }
+    setInterval(createSparkle, 500);
+  </script>
+</body>
+</html>

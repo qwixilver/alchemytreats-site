@@ -1,0 +1,200 @@
+<html><head><base href="https://alchemytreats.com/order"><title>Order Your Alchemy Treats - Sugar-Free Candy Magic</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0e6fa;
+            color: #333;
+        }
+        header {
+            background-color: #8a2be2;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .magic-sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        nav {
+            background-color: #9370db;
+            padding: 0.5em;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 1em;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        main {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1em;
+        }
+        .order-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2em;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1em;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .candy-selection {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1em;
+        }
+        .candy-selection img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 1em;
+        }
+        .submit-button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+            background-color: #ff1493;
+        }
+        footer {
+            background-color: #8a2be2;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin-top: 2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Alchemy Treats</h1>
+        <p>Order Your Sugar-Free Magic</p>
+        <div class="magic-sparkle" style="top: 20%; left: 10%;"></div>
+        <div class="magic-sparkle" style="top: 50%; left: 80%;"></div>
+        <div class="magic-sparkle" style="top: 80%; left: 30%;"></div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/products">Our Candies</a></li>
+            <li><a href="/science">The Science</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Place Your Order</h2>
+        <form class="order-form" action="/submit-order" method="GET">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Shipping Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <h3>Select Your Candies:</h3>
+            <div class="candy-selection">
+                <img src="/images/rainbow-drops.jpg" alt="Rainbow Drops" width="50" height="50">
+                <label for="rainbow-drops">Rainbow Drops:</label>
+                <input type="number" id="rainbow-drops" name="rainbow-drops" min="0" value="0">
+            </div>
+            <div class="candy-selection">
+                <img src="/images/ghost-chocolate.jpg" alt="Ghost Chocolate" width="50" height="50">
+                <label for="ghost-chocolate">Ghost Chocolate:</label>
+                <input type="number" id="ghost-chocolate" name="ghost-chocolate" min="0" value="0">
+            </div>
+            <div class="candy-selection">
+                <img src="/images/sour-sparkles.jpg" alt="Sour Sparkles" width="50" height="50">
+                <label for="sour-sparkles">Sour Sparkles:</label>
+                <input type="number" id="sour-sparkles" name="sour-sparkles" min="0" value="0">
+            </div>
+            <div class="form-group">
+                <label for="shipping">Shipping Method:</label>
+                <select id="shipping" name="shipping" required>
+                    <option value="standard">Standard Shipping (3-5 business days)</option>
+                    <option value="express">Express Shipping (1-2 business days)</option>
+                    <option value="overnight">Overnight Shipping</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="magic-code">Magic Code (Optional):</label>
+                <input type="text" id="magic-code" name="magic-code" placeholder="Enter your special magic code">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Place Order" class="submit-button">
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2023 Alchemy Treats. All rights reserved.</p>
+        <p>Transforming the world of candy, one sugar-free treat at a time.</p>
+    </footer>
+    <script>
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('magic-sparkle');
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            document.querySelector('header').appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 2000);
+        }
+        setInterval(createSparkle, 500);
+    </script>
+</body></html>

@@ -1,0 +1,125 @@
+<!-- File: love-potion-1.html
+     Path: ./love-potion-1.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Potion #1 - Alchemy Treats</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    main {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .product-hero {
+      text-align: center;
+    }
+    .product-hero img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 1em;
+    }
+    .product-description {
+      font-size: 1.1em;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 2em;
+    }
+    .section {
+      margin-bottom: 2em;
+    }
+    .section h3 {
+      color: #8a2be2;
+      margin-bottom: 0.5em;
+    }
+    .cta-button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 0.75em 1.5em;
+      font-size: 1.1em;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #ff1493;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="./index.html"><img src="./img/logo.png" alt="Alchemy Treats Logo" class="site-logo"></a>
+    <p>Love Potion #1</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./index.html#about">About Us</a></li>
+      <li><a href="./index.html#products">Our Candies</a></li>
+      <li><a href="./index.html#science">The Science</a></li>
+      <li><a href="./order.html">Order Now</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="product-hero">
+      <img src="./img/Love_potion_1.png" alt="Love Potion #1">
+      <h2>Love Potion #1</h2>
+      <p class="product-description">
+        Enchanting dark chocolate and raspberry swirl, a bewitching spell of rich indulgence.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Flavor Profile</h3>
+      <p>
+        Love Potion #1 captures the decadence of dark chocolate and the bold tang of ripe raspberries. This rich duo blends into
+        a flavor as smooth as a truffle and as punchy as a spell gone right. It’s love at first bite—or maybe obsession.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Texture & Experience</h3>
+      <p>
+        Softer than our typical hard candies, Love Potion #1 offers a semi-chewy texture that melts slowly and leaves
+        a velvety finish. Close your eyes, and it's like biting into a bite-sized brownie soaked in raspberry elixir.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Great For</h3>
+      <ul>
+        <li>Chocolate romantics and berry enthusiasts</li>
+        <li>Date night treats and self-care rituals</li>
+        <li>Fans of indulgent desserts with depth</li>
+        <li>Surprise gifts with a touch of mystery</li>
+      </ul>
+    </div>
+
+    <div class="section" style="text-align: center;">
+      <a href="./order.html" class="cta-button">Order Love Potion #1 Now</a>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Alchemy Treats. All rights reserved.</p>
+    <p>Transforming the world of candy, one sugar-free treat at a time.</p>
+  </footer>
+  <script>
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('magic-sparkle');
+      sparkle.style.left = Math.random() * 100 + '%';
+      sparkle.style.top = Math.random() * 100 + '%';
+      sparkle.style.animationDelay = Math.random() * 2 + 's';
+      document.querySelector('header').appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 2000);
+    }
+    setInterval(createSparkle, 500);
+  </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<html><head><base href="https://alchemytreats.com/"><title>Alchemy Treats - Sugar-Free Candy Magic</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0e6fa;
+            color: #333;
+        }
+        header {
+            background-color: #8a2be2;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .magic-sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        nav {
+            background-color: #9370db;
+            padding: 0.5em;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 1em;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        main {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1em;
+        }
+        .candy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1em;
+            margin-top: 2em;
+        }
+        .candy-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .candy-item:hover {
+            transform: translateY(-5px);
+        }
+        .candy-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #8a2be2;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin-top: 2em;
+        }
+        .cta-button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            background-color: #ff1493;
+        }
+        #testimonials {
+            background-color: #e6e6fa;
+            padding: 2em;
+            border-radius: 10px;
+            margin-top: 2em;
+        }
+        .testimonial {
+            background-color: white;
+            padding: 1em;
+            border-radius: 5px;
+            margin-bottom: 1em;
+        }
+        #new-product {
+            background-color: #ffd700;
+            padding: 1em;
+            border-radius: 10px;
+            margin-top: 2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Alchemy Treats</h1>
+        <p>Transforming Sweetness, Without the Sugar</p>
+        <div class="magic-sparkle" style="top: 20%; left: 10%;"></div>
+        <div class="magic-sparkle" style="top: 50%; left: 80%;"></div>
+        <div class="magic-sparkle" style="top: 80%; left: 30%;"></div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#products">Our Candies</a></li>
+            <li><a href="#science">The Science</a></li>
+            <li><a href="/order">Order Now</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="about">
+            <h2>About Alchemy Treats</h2>
+            <p>Welcome to Alchemy Treats, where we're revolutionizing the world of candy! Our passion is creating delicious, sugar-free confections that taste just as good as their sugary counterparts. Using cutting-edge food science and a dash of magic, we've perfected the art of sweet without the sugar.</p>
+        </section>
+        <section id="new-product">
+            <h2>New Product Alert!</h2>
+            <p>Introducing our latest creation: <strong>Levitating Lollipops</strong>! These gravity-defying treats hover just above your hand as you enjoy them. Experience the magic of weightless candy today!</p>
+            <a href="/products/levitating-lollipops" class="cta-button">Learn More</a>
+        </section>
+        <section id="products">
+            <h2>Our Magical Candies</h2>
+            <div class="candy-grid">
+                <div class="candy-item">
+                    <img src="/images/rainbow-drops.jpg" alt="Colorful sugar-free candy drops" width="200" height="150">
+                    <h3>Rainbow Drops</h3>
+                    <p>Bursting with fruit flavors, zero sugar!</p>
+                </div>
+                <div class="candy-item">
+                    <img src="/images/ghost-chocolate.jpg" alt="Ethereal chocolate-flavored sugar-free candies" width="200" height="150">
+                    <h3>Ghost Chocolate</h3>
+                    <p>Ethereal chocolate experience, mysteriously sugar-free!</p>
+                </div>
+                <div class="candy-item">
+                    <img src="/images/sour-sparkles.jpg" alt="Glittery sour-flavored sugar-free candies" width="200" height="150">
+                    <h3>Sour Sparkles</h3>
+                    <p>Tangy explosion, no sugar crash!</p>
+                </div>
+                <div class="candy-item">
+                    <img src="/images/levitating-lollipops.jpg" alt="Floating lollipops in various flavors" width="200" height="150">
+                    <h3>Levitating Lollipops</h3>
+                    <p>Defy gravity with every lick!</p>
+                </div>
+            </div>
+        </section>
+        <section id="science">
+            <h2>The Alchemy Behind Our Treats</h2>
+            <p>Our team of food scientists and confectionery experts have developed a proprietary blend of natural sweeteners and flavor enhancers that mimic the taste and texture of sugar. We use ingredients like erythritol, stevia, and monk fruit extract, combined with our secret flavor-boosting process to create candies that are indistinguishable from traditional sweets.</p>
+            <p>But we don't stop at just replacing sugar. Our candies are fortified with vitamins and minerals, making them not just a treat, but a smart snacking choice!</p>
+        </section>
+        <section id="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial">
+                <p>"I can't believe these are sugar-free! The Rainbow Drops taste just like the candy I remember from childhood, but without the guilt." - Sarah M.</p>
+            </div>
+            <div class="testimonial">
+                <p>"Ghost Chocolate is a game-changer. As a diabetic, I thought I'd never enjoy chocolate again. Thank you, Alchemy Treats!" - Michael R.</p>
+            </div>
+            <div class="testimonial">
+                <p>"Sour Sparkles are my new addiction. They're tangy, they're fun, and they don't spike my blood sugar. Win-win!" - Emily T.</p>
+            </div>
+        </section>
+        <section id="order">
+            <h2>Experience the Magic</h2>
+            <p>Ready to transform your candy experience? Order now and get a taste of the future of sweets!</p>
+            <a href="/order" class="cta-button">Order Your Alchemy Treats</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Alchemy Treats. All rights reserved.</p>
+        <p>Transforming the world of candy, one sugar-free treat at a time.</p>
+    </footer>
+    <script>
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('magic-sparkle');
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            document.querySelector('header').appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 2000);
+        }
+        setInterval(createSparkle, 500);
+    </script>
+</body></html>

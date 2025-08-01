@@ -1,0 +1,123 @@
+<!-- File: thanksgiving-hug.html
+     Path: ./thanksgiving-hug.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thanksgiving (Hug) - Alchemy Treats</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    main {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .product-hero {
+      text-align: center;
+    }
+    .product-hero img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 1em;
+    }
+    .product-description {
+      font-size: 1.1em;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 2em;
+    }
+    .section {
+      margin-bottom: 2em;
+    }
+    .section h3 {
+      color: #8a2be2;
+      margin-bottom: 0.5em;
+    }
+    .cta-button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 0.75em 1.5em;
+      font-size: 1.1em;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #ff1493;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="./index.html"><img src="./img/logo.png" alt="Alchemy Treats Logo" class="site-logo"></a>
+    <p>Thanksgiving (Hug)</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./index.html#about">About Us</a></li>
+      <li><a href="./index.html#products">Our Candies</a></li>
+      <li><a href="./index.html#science">The Science</a></li>
+      <li><a href="./order.html">Order Now</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="product-hero">
+      <img src="./img/Thanksgiving Hug.png" alt="Thanksgiving (Hug)">
+      <h2>Thanksgiving (Hug)</h2>
+      <p class="product-description">
+        Pumpkin spice dreams kissed with creamy warmth, like autumn’s embrace in candy form.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Flavor Profile</h3>
+      <p>
+        A warm blend of cinnamon, nutmeg, clove, and ginger swirled together in perfect harmony—this candy delivers everything you love about a pumpkin spice latte, complete with the whipped cream on top. It’s cozy, nostalgic, and undeniably seasonal.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Texture & Experience</h3>
+      <p>
+        A rich, melt-in-your-mouth base brings the spices to life, while creamy notes round off the flavor like a soft fleece blanket around your soul. One taste and you’ll swear it’s sweater weather again.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Great For</h3>
+      <ul>
+        <li>Autumn lovers and PSL fanatics</li>
+        <li>Warm memories and festive vibes</li>
+        <li>Comfort candy after a long day</li>
+        <li>Holiday gifting and cozy nights in</li>
+      </ul>
+    </div>
+
+    <div class="section" style="text-align: center;">
+      <a href="./order.html" class="cta-button">Order Thanksgiving (Hug) Now</a>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Alchemy Treats. All rights reserved.</p>
+    <p>Transforming the world of candy, one sugar-free treat at a time.</p>
+  </footer>
+  <script>
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('magic-sparkle');
+      sparkle.style.left = Math.random() * 100 + '%';
+      sparkle.style.top = Math.random() * 100 + '%';
+      sparkle.style.animationDelay = Math.random() * 2 + 's';
+      document.querySelector('header').appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 2000);
+    }
+    setInterval(createSparkle, 500);
+  </script>
+</body>
+</html>

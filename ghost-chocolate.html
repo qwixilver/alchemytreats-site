@@ -1,0 +1,125 @@
+<!-- File: ghost-chocolate.html
+     Path: ./ghost-chocolate.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ghost Chocolate - Alchemy Treats</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    main {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .product-hero {
+      text-align: center;
+    }
+    .product-hero img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 1em;
+    }
+    .product-description {
+      font-size: 1.1em;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 2em;
+    }
+    .section {
+      margin-bottom: 2em;
+    }
+    .section h3 {
+      color: #8a2be2;
+      margin-bottom: 0.5em;
+    }
+    .cta-button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 0.75em 1.5em;
+      font-size: 1.1em;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #ff1493;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="./index.html"><img src="./img/logo.png" alt="Alchemy Treats Logo" class="site-logo"></a>
+    <p>Ghost Chocolate</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./index.html#about">About Us</a></li>
+      <li><a href="./index.html#products">Our Candies</a></li>
+      <li><a href="./index.html#science">The Science</a></li>
+      <li><a href="./order.html">Order Now</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="product-hero">
+      <img src="./img/Ghost Chocolate.png" alt="Ghost Chocolate">
+      <h2>Ghost Chocolate</h2>
+      <p class="product-description">
+        Ethereal chocolate magic with a whisper of toffee—vanishing sweetness in every bite.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Flavor Profile</h3>
+      <p>
+        Ghost Chocolate is a fleeting kiss of cocoa — a delicate, whisper-light blend reminiscent of white chocolate and soft toffee. 
+        It’s smooth, subtly sweet, and barely there… until you find yourself craving just one more.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Texture & Experience</h3>
+      <p>
+        A gentle dissolve on the tongue with no lingering aftertaste. Designed to feel light, soft, and clean—
+        as if the chocolate is passing through another dimension before it reaches your taste buds.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Great For</h3>
+      <ul>
+        <li>Chocolate lovers who prefer elegance over intensity</li>
+        <li>Those with sensitive taste buds or subtle palates</li>
+        <li>Pairing with warm milk, coffee, or quiet reflection</li>
+        <li>Anyone intrigued by flavor that feels like a memory</li>
+      </ul>
+    </div>
+
+    <div class="section" style="text-align: center;">
+      <a href="./order.html" class="cta-button">Order Ghost Chocolate Now</a>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Alchemy Treats. All rights reserved.</p>
+    <p>Transforming the world of candy, one sugar-free treat at a time.</p>
+  </footer>
+  <script>
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('magic-sparkle');
+      sparkle.style.left = Math.random() * 100 + '%';
+      sparkle.style.top = Math.random() * 100 + '%';
+      sparkle.style.animationDelay = Math.random() * 2 + 's';
+      document.querySelector('header').appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 2000);
+    }
+    setInterval(createSparkle, 500);
+  </script>
+</body>
+</html>
