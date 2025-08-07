@@ -1,14 +1,13 @@
 <!-- File: order.html
-     Path: ./order.html
-     Canvas ID: 68884e74777481918cde0517b55fca57 -->
+     Path: ./order.html -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Order Your Alchemy Treats - Sugar-Free Candy Magic</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css" />
   <style>
     .order-form {
       background-color: white;
@@ -59,6 +58,20 @@
     .address-full {
       grid-column: span 2;
     }
+    .magic-sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: sparkle 2s infinite;
+    }
+    @keyframes sparkle {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0); opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -74,24 +87,24 @@
       <li><a href="./index.html#science">The Science</a></li>
     </ul>
   </nav>
+
   <main>
-  <h2>Place Your Order</h2>
-  <form class="order-form" id="order-form" onsubmit="return validateForm()">
-    <div class="form-group">
-      <input type="text" id="name" name="name" placeholder="Full Name" required />
-    </div>
+    <h2>Place Your Order</h2>
+    <form class="order-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="d810966f-b0a0-4952-8533-cdb9522bc2c3">
+      <input type="hidden" name="subject" value="New Candy Order from Web">
+      <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
 
-    <div class="form-group">
-      <input type="email" id="email" name="email" placeholder="Email Address" required />
-    </div>
-
-    <div class="form-group">
-      <label>Shipping Address</label>
+        <p>Personal details:</p>
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+        <br><br>
+      <label>Shipping Address</label><br><br>
       <div class="address-block">
-        <input type="text" id="address1" name="address1" placeholder="Street Address" class="address-full" required />
-        <input type="text" id="address2" name="address2" placeholder="Apt, Suite, etc. (optional)" class="address-full" />
-        <input type="text" id="city" name="city" placeholder="City" required />
-        <input list="states" id="state" name="state" placeholder="State" required />
+        <input type="text" name="address1" placeholder="Street Address" class="address-full" required />
+        <input type="text" name="address2" placeholder="Apt, Suite, etc. (optional)" class="address-full" />
+        <input type="text" name="city" placeholder="City" required />
+        <input list="states" name="state" placeholder="State" required />
         <datalist id="states">
           <option value="AL"> <option value="AK"> <option value="AZ"> <option value="AR"> <option value="CA"> <option value="CO">
           <option value="CT"> <option value="DE"> <option value="FL"> <option value="GA"> <option value="HI"> <option value="ID">
@@ -103,70 +116,42 @@
           <option value="TX"> <option value="UT"> <option value="VT"> <option value="VA"> <option value="WA"> <option value="WV">
           <option value="WI"> <option value="WY">
         </datalist>
-        <input type="text" id="zip" name="zip" placeholder="ZIP Code" required />
+        <input type="text" name="zip" placeholder="ZIP Code" required />
       </div>
-    </div>
 
-    <h3>Select Your Candies ($7.00 each):</h3>
-    <div class="candy-selection">
-      <img src="./img/Citrus Celebration.png" alt="Citrus Celebration">
-      <label for="citrus">Citrus Celebration</label>
-      <input type="number" id="citrus" name="citrus" min="0" value="0">
-    </div>
-    <div class="candy-selection">
-      <img src="./img/FirstOfSpring.png" alt="First of Spring">
-      <label for="spring">First of Spring</label>
-      <input type="number" id="spring" name="spring" min="0" value="0">
-    </div>
-    <div class="candy-selection">
-      <img src="./img/Ghost_Chocolate_Updated.png" alt="Ghost Chocolate">
-      <label for="ghost">Ghost Chocolate</label>
-      <input type="number" id="ghost" name="ghost" min="0" value="0">
-    </div>
-    <div class="candy-selection">
-      <img src="./img/Love_potion_1.png" alt="Love Potion #1">
-      <label for="love">Love Potion #1</label>
-      <input type="number" id="love" name="love" min="0" value="0">
-    </div>
-    <div class="candy-selection">
-      <img src="./img/Thanksgiving_Hug_Updated.png" alt="Thanksgiving (Hug)">
-      <label for="hug">Thanksgiving (Hug)</label>
-      <input type="number" id="hug" name="hug" min="0" value="0">
-    </div>
-    <div class="candy-selection">
-      <img src="./img/Valentines day.png" alt="Valentine’s Day">
-      <label for="valentine">Valentine’s Day</label>
-      <input type="number" id="valentine" name="valentine" min="0" value="0">
-    </div>
+      <h3>Select Your Candies ($7.00 each):</h3>
+      <div class="candy-selection"><img src="./img/Citrus Celebration.png" alt="Citrus Celebration"><label for="citrus">Citrus Celebration</label><input type="number" name="citrus" min="0" value="0"></div>
+      <div class="candy-selection"><img src="./img/FirstOfSpring.png" alt="First of Spring"><label for="spring">First of Spring</label><input type="number" name="spring" min="0" value="0"></div>
+      <div class="candy-selection"><img src="./img/Ghost Chocolate.png" alt="Ghost Chocolate"><label for="ghost">Ghost Chocolate</label><input type="number" name="ghost" min="0" value="0"></div>
+      <div class="candy-selection"><img src="./img/Love_potion_1.png" alt="Love Potion #1"><label for="love">Love Potion #1</label><input type="number" name="love" min="0" value="0"></div>
+      <div class="candy-selection"><img src="./img/Thanksgiving Hug.png" alt="Thanksgiving (Hug)"><label for="hug">Thanksgiving (Hug)</label><input type="number" name="hug" min="0" value="0"></div>
+      <div class="candy-selection"><img src="./img/Valentines day.png" alt="Valentine’s Day"><label for="valentine">Valentine’s Day</label><input type="number" name="valentine" min="0" value="0"></div>
 
-    <div class="form-group">
-      <label for="shipping">Shipping Method</label>
-      <select id="shipping" name="shipping" required>
-        <option value="standard">Standard Shipping (3-5 business days)</option>
-        <option value="express">Express Shipping (1-2 business days)</option>
-        <option value="overnight">Overnight Shipping</option>
-      </select>
-    </div>
+      <label for="payment">Payment Method</label>
+      <div>
+        <input type="radio" name="payment" value="paypal" id="paypal" required>
+        <label for="paypal">PayPal (@qwixilver)</label><br>
+        <input type="radio" name="payment" value="cashapp" id="cashapp">
+        <label for="cashapp">Cash App ($qwixilverwork)</label>
+      </div>
 
-    <div class="form-group">
-      <input type="text" id="magic-code" name="magic-code" placeholder="Magic Code (Optional)">
-    </div>
+      <input type="text" name="transaction-id" style="width: 300px;" placeholder="Transaction ID (Paste after payment)">
 
-    <div class="form-group">
       <p>Total: $<span id="total-price">0.00</span></p>
       <input type="submit" value="Place Order" class="submit-button">
-    </div>
-  </form>
-</main>
+    </form>
+  </main>
+
   <footer>
     <p>&copy; 2023 Alchemy Treats. All rights reserved.</p>
     <p>Transforming the world of candy, one sugar-free treat at a time.</p>
   </footer>
+
   <script>
     const pricePerUnit = 7.0;
     const inputs = document.querySelectorAll('input[type="number"]');
     const totalEl = document.getElementById('total-price');
-
+    inputs.forEach(input => input.addEventListener('input', updateTotal));
     function updateTotal() {
       let total = 0;
       inputs.forEach(input => {
@@ -175,20 +160,9 @@
       });
       totalEl.textContent = total.toFixed(2);
     }
-
-    function validateForm() {
-      const emailPattern = /^[^\s@]+\+?[^\s@]*@[^\s@]+\.[^\s@]+$/;
-      const email = document.getElementById('email').value;
-      if (!emailPattern.test(email)) {
-        alert('Please enter a valid email address.');
-        return false;
-      }
-      return true;
-    }
-
-    inputs.forEach(input => input.addEventListener('input', updateTotal));
   </script>
-   <script>
+
+  <script>
     function createSparkle() {
       const sparkle = document.createElement('div');
       sparkle.classList.add('magic-sparkle');
