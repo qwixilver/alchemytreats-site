@@ -1,0 +1,208 @@
+<!-- File: thank-you.html
+     Path: ./thank-you.html
+     Canvas ID: (not applicable in chat export) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You – Alchemy Treats</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    /* Page-specific enhancements to pair with your global style.css */
+    main {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .thankyou-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2em;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+    .thankyou-card h2 {
+      margin-top: 0;
+      color: #8a2be2;
+      font-size: 2rem;
+    }
+    .lead {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin: 0.5em 0 1.25em;
+    }
+    .next-steps {
+      text-align: left;
+      margin: 1.5em auto 0;
+      max-width: 680px;
+    }
+    .next-steps h3 {
+      color: #8a2be2;
+      margin-bottom: 0.5em;
+    }
+    .next-steps ul {
+      margin: 0;
+      padding-left: 1.2em;
+      line-height: 1.6;
+    }
+    .cta-row {
+      margin-top: 2em;
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .cta-button {
+      background-color: #ff69b4;
+      color: #fff;
+      border: none;
+      padding: 0.75em 1.25em;
+      font-size: 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.25s ease, transform 0.08s ease;
+    }
+    .cta-button:hover { background-color: #ff1493; }
+    .cta-button:active { transform: translateY(1px); }
+
+    /* Confetti */
+    .confetti-piece {
+      position: fixed;
+      top: -10px;
+      width: 8px; height: 14px;
+      opacity: 0.9;
+      transform: rotate(0deg);
+      animation: fall linear forwards;
+      z-index: 10;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 1;
+      }
+    }
+
+    /* Sparkles (header) – same class name used across site */
+    .magic-sparkle {
+      position: absolute;
+      width: 10px; height: 10px;
+      background: #fff; border-radius: 50%;
+      opacity: 0; animation: sparkle 2s infinite;
+    }
+    @keyframes sparkle {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0); opacity: 0; }
+    }
+
+    /* Subtle badge */
+    .badge {
+      display: inline-block;
+      background: #e6e6fa;
+      color: #5b2ea5;
+      border: 1px solid #d7c9ff;
+      border-radius: 999px;
+      padding: 0.35em 0.75em;
+      font-size: 0.9rem;
+      margin-bottom: 0.75em;
+    }
+
+    /* Small print */
+    .muted { color: #666; font-size: 0.95rem; margin-top: 1em; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="./index.html"><img src="./img/logo.png" alt="Alchemy Treats Logo" class="site-logo"></a>
+    <p>Thank You!</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./index.html#about">About Us</a></li>
+      <li><a href="./index.html#products">Our Candies</a></li>
+      <li><a href="./index.html#science">The Science</a></li>
+      <li><a href="./order.html">Order Now</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="thankyou-card">
+      <span class="badge">Order Received</span>
+      <h2>Your order is in our cauldron ✨</h2>
+      <p class="lead">
+        We’ve received your submission and sent a confirmation to your inbox.
+        If you included a payment transaction ID, we’ll verify it shortly and begin preparing your sugar‑free magic.
+      </p>
+
+      <div class="next-steps">
+        <h3>What happens next</h3>
+        <ul>
+          <li><strong>Check your email</strong> for a confirmation with your order details. If it’s not there, peek in your spam folder.</li>
+          <li><strong>Payment verification</strong>: If you paid via PayPal or Cash App and pasted a transaction ID, we’ll mark your order as paid once verified.</li>
+          <li><strong>Didn’t pay yet?</strong> You can still pay now:
+            <ul>
+              <li>PayPal: <a href="https://www.paypal.me/qwixilver/" target="_blank" rel="noopener">paypal.me/qwixilver</a></li>
+              <li>Cash App: <a href="https://cash.app/$qwixilverwork" target="_blank" rel="noopener">cash.app/$qwixilverwork</a></li>
+            </ul>
+            Then reply to your confirmation email with the transaction ID.
+          </li>
+          <li><strong>Questions?</strong> Email us at <a href="mailto:owner@alchemytreats.com">owner@alchemytreats.com</a>.</li>
+        </ul>
+      </div>
+
+      <div class="cta-row">
+        <a class="cta-button" href="./order.html">Place Another Order</a>
+        <a class="cta-button" href="./index.html#products">Browse Flavors</a>
+        <a class="cta-button" href="./index.html">Back to Home</a>
+      </div>
+
+      <p class="muted">
+        P.S. We’re a small batch studio—thank you for supporting handcrafted, sugar‑free treats!
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Alchemy Treats. All rights reserved.</p>
+    <p>Transforming the world of candy, one sugar-free treat at a time.</p>
+  </footer>
+
+  <script>
+    // Header sparkles (same behavior as other pages)
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('magic-sparkle');
+      sparkle.style.left = Math.random() * 100 + '%';
+      sparkle.style.top = Math.random() * 100 + '%';
+      sparkle.style.animationDelay = Math.random() * 2 + 's';
+      document.querySelector('header').appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 2000);
+    }
+    setInterval(createSparkle, 500);
+
+    // Lightweight confetti (vanilla)
+    (function confettiBurst() {
+      const colors = ['#ff69b4','#ffd700','#8a2be2','#00c2ff','#ff8c00','#32cd32'];
+      const pieces = 80; // modest; performant
+      for (let i = 0; i < pieces; i++) {
+        const el = document.createElement('div');
+        el.className = 'confetti-piece';
+        el.style.background = colors[i % colors.length];
+        el.style.left = Math.random() * 100 + 'vw';
+        el.style.transform = 'rotate(' + (Math.random()*360) + 'deg)';
+        el.style.animationDuration = (1.8 + Math.random()*1.7) + 's';
+        el.style.animationDelay = (Math.random()*0.35) + 's';
+        el.style.width = (6 + Math.random()*6) + 'px';
+        el.style.height = (10 + Math.random()*10) + 'px';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 3500);
+      }
+    })();
+  </script>
+</body>
+</html>

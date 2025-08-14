@@ -9,76 +9,33 @@
   <title>Order Your Alchemy Treats - Sugar-Free Candy Magic</title>
   <link rel="stylesheet" href="./style.css" />
   <style>
-    .order-form {
-      background-color: white;
-      border-radius: 10px;
-      padding: 2em;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      max-width: 800px;
-      margin: 2em auto;
-    }
-    .candy-selection {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-      padding: 1em 0;
-      border-bottom: 1px solid #eee;
-    }
-    .candy-selection:last-of-type {
-      border-bottom: none;
-    }
-    .candy-selection img {
-      width: 75px;
-      height: 75px;
-      object-fit: cover;
-      border-radius: 10px;
-      flex-shrink: 0;
-    }
-    .candy-selection label {
-      flex: 1;
-      font-weight: bold;
-    }
-    .candy-selection input[type="number"] {
-      width: 60px;
-    }
-    .address-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1em;
-      margin-bottom: 1em;
-    }
-    .address-block input,
-    .address-block select {
-      width: 100%;
-      padding: 0.5em;
-      font-size: 1em;
-      border: 1px solid #666;
-      border-radius: 4px;
-    }
-    .address-full {
-      grid-column: span 2;
-    }
-    .magic-sparkle {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0;
-      animation: sparkle 2s infinite;
-    }
-    @keyframes sparkle {
-      0% { transform: scale(0); opacity: 0; }
-      50% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(0); opacity: 0; }
-    }
+    .order-form { background-color:#fff; border-radius:10px; padding:2em; box-shadow:0 4px 6px rgba(0,0,0,0.1); max-width:800px; margin:2em auto; }
+    .candy-selection { display:flex; align-items:center; gap:1em; padding:1em 0; border-bottom:1px solid #eee; }
+    .candy-selection:last-of-type { border-bottom:none; }
+    .candy-selection img { width:75px; height:75px; object-fit:cover; border-radius:10px; flex-shrink:0; }
+    .candy-selection label { flex:1; font-weight:bold; }
+    .candy-selection input[type="number"] { width:60px; }
+    .address-block { display:grid; grid-template-columns:1fr 1fr; gap:1em; margin-bottom:1em; }
+    .address-block input, .address-block select { width:100%; padding:0.5em; font-size:1em; border:1px solid #666; border-radius:4px; }
+    .address-full { grid-column:span 2; }
+    .pay-buttons { display:flex; gap:1em; align-items:center; margin-bottom:1em; }
+    .pay-buttons img { height:40px; display:block; }
+    .note { font-size:0.95em; color:#333; margin:0.5em 0 1em; }
+    .muted { color:#666; font-size:0.9em; }
+    .magic-sparkle { position:absolute; width:10px; height:10px; background:#fff; border-radius:50%; opacity:0; animation:sparkle 2s infinite; }
+    @keyframes sparkle { 0%{transform:scale(0);opacity:0;} 50%{transform:scale(1);opacity:1;} 100%{transform:scale(0);opacity:0;} }
+    .captcha-row { display:flex; gap:.75em; align-items:center; }
+    .captcha-row input[type="text"] { max-width:140px; }
   </style>
+  <!-- Web3Forms client script enables optional hCaptcha -->
+  <script src="https://web3forms.com/client/script.js" async defer></script>
 </head>
 <body>
   <header>
     <a href="./index.html"><img src="./img/logo.png" alt="Alchemy Treats Logo" class="site-logo"></a>
     <p>Order Your Sugar-Free Magic</p>
   </header>
+
   <nav>
     <ul>
       <li><a href="./index.html">Home</a></li>
@@ -88,23 +45,29 @@
     </ul>
   </nav>
 
+  <!-- Enable hCaptcha by leaving data-hcaptcha="true" on the form AND enabling it in your Web3Forms dashboard -->
   <main>
     <h2>Place Your Order</h2>
-    <form class="order-form" action="https://api.web3forms.com/submit" method="POST">
+    <form class="order-form" id="order-form" action="https://api.web3forms.com/submit" method="POST" data-hcaptcha="true" novalidate>
+      <!-- Web3Forms required/hidden -->
       <input type="hidden" name="access_key" value="d810966f-b0a0-4952-8533-cdb9522bc2c3">
-      <input type="hidden" name="subject" value="New Candy Order from Web">
+      <input type="hidden" name="subject" id="subject" value="New Candy Order - PAID">
+      <input type="hidden" name="order_total" id="order_total" value="0.00">
+      <input type="hidden" name="replyto" value="email"><!-- lets you reply to buyer -->
+      <input type="hidden" name="redirect" value="https://alchemytreats.com/thank-you.html"><!-- avoids JSON page -->
       <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+      <input type="hidden" id="form_loaded_at" value=""><!-- time-trap -->
+      <input type="hidden" name="payment_method" id="payment_method" value="Unspecified"><!-- default so it’s never empty -->
 
-        <p>Personal details:</p>
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-        <br><br>
-      <label>Shipping Address</label><br><br>
+      <input type="text" name="name" id="name" placeholder="Full Name" required>
+      <input type="email" name="email" id="email" placeholder="Email Address" required>
+
+      <label>Shipping Address</label>
       <div class="address-block">
-        <input type="text" name="address1" placeholder="Street Address" class="address-full" required />
-        <input type="text" name="address2" placeholder="Apt, Suite, etc. (optional)" class="address-full" />
-        <input type="text" name="city" placeholder="City" required />
-        <input list="states" name="state" placeholder="State" required />
+        <input type="text" name="address1" id="address1" placeholder="Street Address" class="address-full" required />
+        <input type="text" name="address2" id="address2" placeholder="Apt, Suite, etc. (optional)" class="address-full" />
+        <input type="text" name="city" id="city" placeholder="City" required />
+        <input list="states" name="state" id="state" placeholder="State" required />
         <datalist id="states">
           <option value="AL"> <option value="AK"> <option value="AZ"> <option value="AR"> <option value="CA"> <option value="CO">
           <option value="CT"> <option value="DE"> <option value="FL"> <option value="GA"> <option value="HI"> <option value="ID">
@@ -116,28 +79,46 @@
           <option value="TX"> <option value="UT"> <option value="VT"> <option value="VA"> <option value="WA"> <option value="WV">
           <option value="WI"> <option value="WY">
         </datalist>
-        <input type="text" name="zip" placeholder="ZIP Code" required />
+        <input type="text" name="zip" id="zip" placeholder="ZIP Code" required />
       </div>
 
       <h3>Select Your Candies ($7.00 each):</h3>
-      <div class="candy-selection"><img src="./img/Citrus Celebration.png" alt="Citrus Celebration"><label for="citrus">Citrus Celebration</label><input type="number" name="citrus" min="0" value="0"></div>
-      <div class="candy-selection"><img src="./img/FirstOfSpring.png" alt="First of Spring"><label for="spring">First of Spring</label><input type="number" name="spring" min="0" value="0"></div>
-      <div class="candy-selection"><img src="./img/Ghost Chocolate.png" alt="Ghost Chocolate"><label for="ghost">Ghost Chocolate</label><input type="number" name="ghost" min="0" value="0"></div>
-      <div class="candy-selection"><img src="./img/Love_potion_1.png" alt="Love Potion #1"><label for="love">Love Potion #1</label><input type="number" name="love" min="0" value="0"></div>
-      <div class="candy-selection"><img src="./img/Thanksgiving Hug.png" alt="Thanksgiving (Hug)"><label for="hug">Thanksgiving (Hug)</label><input type="number" name="hug" min="0" value="0"></div>
-      <div class="candy-selection"><img src="./img/Valentines day.png" alt="Valentine’s Day"><label for="valentine">Valentine’s Day</label><input type="number" name="valentine" min="0" value="0"></div>
+      <div class="candy-selection"><img src="./img/Citrus Celebration.png" alt="Citrus Celebration"><label for="citrus">Citrus Celebration</label><input type="number" id="citrus" name="citrus" min="0" value="0"></div>
+      <div class="candy-selection"><img src="./img/FirstOfSpring.png" alt="First of Spring"><label for="spring">First of Spring</label><input type="number" id="spring" name="spring" min="0" value="0"></div>
+      <div class="candy-selection"><img src="./img/Ghost Chocolate.png" alt="Ghost Chocolate"><label for="ghost">Ghost Chocolate</label><input type="number" id="ghost" name="ghost" min="0" value="0"></div>
+      <div class="candy-selection"><img src="./img/Love_potion_1.png" alt="Love Potion #1"><label for="love">Love Potion #1</label><input type="number" id="love" name="love" min="0" value="0"></div>
+      <div class="candy-selection"><img src="./img/Thanksgiving Hug.png" alt="Thanksgiving (Hug)"><label for="hug">Thanksgiving (Hug)</label><input type="number" id="hug" name="hug" min="0" value="0"></div>
+      <div class="candy-selection"><img src="./img/Valentines day.png" alt="Valentine’s Day"><label for="valentine">Valentine’s Day</label><input type="number" id="valentine" name="valentine" min="0" value="0"></div>
 
-      <label for="payment">Payment Method</label>
-      <div>
-        <input type="radio" name="payment" value="paypal" id="paypal" required>
-        <label for="paypal">PayPal (@qwixilver)</label><br>
-        <input type="radio" name="payment" value="cashapp" id="cashapp">
-        <label for="cashapp">Cash App ($qwixilverwork)</label>
+      <label><strong>💳 Payment Method</strong></label>
+      <p class="note">
+        💡 <strong>How to Pay:</strong><br>
+        Click a button below to open your payment app. After paying, copy the transaction/reference ID and paste it into the box below.
+        <span class="muted">Orders without a transaction ID are accepted but flagged as “Payment Not Confirmed.”</span>
+      </p>
+
+      <div class="pay-buttons">
+        <a href="https://www.paypal.me/qwixilver/" target="_blank" rel="noopener" id="btn-paypal" aria-label="Pay with PayPal">
+          <img src="./img/paypal-logo.png" alt="Pay with PayPal">
+        </a>
+        <a href="https://cash.app/$qwixilverwork" target="_blank" rel="noopener" id="btn-cashapp" aria-label="Pay with Cash App">
+          <img src="./img/cash-app-logo.png" alt="Pay with Cash App">
+        </a>
       </div>
 
-      <input type="text" name="transaction-id" style="width: 300px;" placeholder="Transaction ID (Paste after payment)">
+      <input type="text" name="transaction-id" id="transaction_id" placeholder="Transaction ID (paste after payment)">
 
-      <p>Total: $<span id="total-price">0.00</span></p>
+      <!-- Simple human check (works even if hCaptcha is disabled) -->
+      <div style="margin-top:1em;">
+        <div class="captcha-row">
+          <label for="human_answer"><strong>Quick check:</strong></label>
+          <span id="human_question" aria-live="polite">1 + 1 = ?</span>
+          <input type="text" id="human_answer" name="human_answer" placeholder="Answer" inputmode="numeric" pattern="\\d*" required>
+        </div>
+        <div class="muted">This simple check helps us prevent spam.</div>
+      </div>
+
+      <p style="margin-top:1em;">Total: $<span id="total-price">0.00</span></p>
       <input type="submit" value="Place Order" class="submit-button">
     </form>
   </main>
@@ -148,29 +129,93 @@
   </footer>
 
   <script>
+    // --- Totals / normalize quantities ---
     const pricePerUnit = 7.0;
-    const inputs = document.querySelectorAll('input[type="number"]');
+    const qtyInputs = document.querySelectorAll('input[type="number"]');
     const totalEl = document.getElementById('total-price');
-    inputs.forEach(input => input.addEventListener('input', updateTotal));
+    const totalHidden = document.getElementById('order_total');
+
+    function normalizeNumberInput(el) {
+      const v = parseInt(el.value, 10);
+      el.value = isNaN(v) || v < 0 ? 0 : v; // removes leading zeros and non-numeric
+    }
+
     function updateTotal() {
       let total = 0;
-      inputs.forEach(input => {
-        const quantity = parseInt(input.value) || 0;
-        total += quantity * pricePerUnit;
+      qtyInputs.forEach(input => {
+        normalizeNumberInput(input);
+        total += (parseInt(input.value, 10) || 0) * pricePerUnit;
       });
       totalEl.textContent = total.toFixed(2);
+      totalHidden.value = total.toFixed(2);
     }
-  </script>
+    qtyInputs.forEach(i => i.addEventListener('input', updateTotal));
+    updateTotal();
 
-  <script>
+    // --- Payment method default / set when clicking logo buttons ---
+    const pmHidden = document.getElementById('payment_method');
+    document.getElementById('btn-paypal').addEventListener('click', () => { pmHidden.value = 'PayPal'; });
+    document.getElementById('btn-cashapp').addEventListener('click', () => { pmHidden.value = 'Cash App'; });
+
+    // --- Time trap init ---
+    const loadedAt = Date.now();
+    document.getElementById('form_loaded_at').value = String(loadedAt);
+
+    // --- Simple math challenge generation ---
+    const qEl = document.getElementById('human_question');
+    const aEl = document.getElementById('human_answer');
+    const a = 2 + Math.floor(Math.random() * 8);
+    const b = 2 + Math.floor(Math.random() * 8);
+    const sum = a + b;
+    qEl.textContent = a + " + " + b + " = ?";
+
+    // --- Client-side validation; subject flag based on TX ID ---
+    const form = document.getElementById('order-form');
+    const subjectEl = document.getElementById('subject');
+    const txEl = document.getElementById('transaction_id');
+
+    form.addEventListener('submit', function(e) {
+      // email sanity
+      const email = document.getElementById('email').value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { e.preventDefault(); alert('Enter a valid email.'); return; }
+
+      // US ZIP sanity
+      const zip = document.getElementById('zip').value.trim();
+      if (!/^[0-9]{5}(-[0-9]{4})?$/.test(zip)) { e.preventDefault(); alert('Enter a valid US ZIP code.'); return; }
+
+      // State sanity
+      const state = document.getElementById('state').value.trim().toUpperCase();
+      const allowedStates = "AL,AK,AZ,AR,CA,CO,CT,DE,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VT,VA,WA,WV,WI,WY".split(',');
+      if (!allowedStates.includes(state)) { e.preventDefault(); alert('Enter a valid 2-letter US state code.'); return; }
+
+      // dwell time >= 5s
+      const dwellMs = Date.now() - loadedAt;
+      if (dwellMs < 5000) { e.preventDefault(); alert('Please review your order before submitting.'); return; }
+
+      // math check
+      const ans = parseInt(aEl.value, 10);
+      if (isNaN(ans) || ans !== sum) { e.preventDefault(); alert('Solve the quick check correctly.'); return; }
+
+      // normalize quantities again on submit (strip leading zeros)
+      qtyInputs.forEach(normalizeNumberInput);
+
+      // subject flag based on transaction ID
+      if (txEl.value.trim().length === 0) {
+        subjectEl.value = '⚠️ Payment Not Confirmed - New Candy Order';
+      } else {
+        subjectEl.value = 'New Candy Order - PAID';
+      }
+    });
+
+    // --- Sparkles ---
     function createSparkle() {
-      const sparkle = document.createElement('div');
-      sparkle.classList.add('magic-sparkle');
-      sparkle.style.left = Math.random() * 100 + '%';
-      sparkle.style.top = Math.random() * 100 + '%';
-      sparkle.style.animationDelay = Math.random() * 2 + 's';
-      document.querySelector('header').appendChild(sparkle);
-      setTimeout(() => sparkle.remove(), 2000);
+      const s = document.createElement('div');
+      s.classList.add('magic-sparkle');
+      s.style.left = Math.random() * 100 + '%';
+      s.style.top = Math.random() * 100 + '%';
+      s.style.animationDelay = Math.random() * 2 + 's';
+      document.querySelector('header').appendChild(s);
+      setTimeout(() => s.remove(), 2000);
     }
     setInterval(createSparkle, 500);
   </script>
